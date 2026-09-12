@@ -833,6 +833,15 @@ button:focus-visible {
 }
 
 @media (max-width: 700px) {
+  .section-divider {
+    margin-block: -24px;
+  }
+
+  .section-divider img {
+    width: 56px;
+    height: 56px;
+  }
+
   .home-hero {
     grid-template-columns: 1fr;
     min-height: 0;
@@ -1113,4 +1122,597 @@ button:focus-visible {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+}
+
+/* ========== PLANTEL — CARTÕES ========== */
+.plantel-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.plantel-eyebrow {
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.plantel-heading h1 {
+  margin: 0;
+}
+
+.plantel-heading h1::after {
+  margin-top: 12px;
+}
+
+.plantel-lead {
+  margin-bottom: 4px;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.plantel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+.player-card {
+  position: relative;
+  display: flex;
+  min-height: 330px;
+  aspect-ratio: 3 / 4;
+  flex-direction: column;
+  justify-content: end;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--green-deep);
+  box-shadow: var(--shadow-sm);
+  isolation: isolate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.player-card::after {
+  position: absolute;
+  inset: 35% 0 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent, rgba(6, 24, 11, 0.92));
+  content: '';
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(11, 61, 19, 0.18);
+}
+
+.player-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.35s ease;
+}
+
+.player-card:hover .player-foto {
+  transform: scale(1.03);
+}
+
+.player-info {
+  position: relative;
+  z-index: 2;
+  padding: 24px 20px 20px;
+  color: var(--white);
+}
+
+.player-info h3 {
+  overflow: hidden;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.player-info p {
+  margin-top: 3px;
+  color: var(--lime);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.player-capitao-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: #d4af37;
+  color: var(--green-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.player-card--capitao {
+  border-color: #d4af37;
+}
+
+/* ---- PÁGINA DE DETALHE ---- */
+.player-detail-voltar {
+  display: inline-flex;
+  margin-bottom: 28px;
+  align-items: center;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.player-detail-voltar:hover {
+  color: var(--green);
+}
+
+.player-detail-hero {
+  position: relative;
+  display: flex;
+  min-height: 320px;
+  align-items: center;
+  gap: 44px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  padding: 36px 44px;
+  border-radius: 24px;
+  background: linear-gradient(120deg, var(--green-deep), #176326);
+  color: var(--white);
+}
+
+.player-detail-hero::after {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  width: 300px;
+  height: 300px;
+  background: url('./assets/logo.png') center / contain no-repeat;
+  opacity: 0.16;
+  transform: translateY(-50%);
+  content: '';
+  pointer-events: none;
+}
+
+.player-detail-foto {
+  position: relative;
+  z-index: 1;
+  width: 230px;
+  height: 250px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: top center;
+  border: 5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+}
+
+.player-detail-hero-info {
+  position: relative;
+  z-index: 1;
+}
+
+.player-detail-numero {
+  display: inline-flex;
+  order: 2;
+  flex: 0 0 72px;
+  min-width: 72px;
+  height: 72px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(217, 240, 109, 0.5);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.14);
+  color: var(--lime);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.player-detail-name-row {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 16px;
+}
+
+.player-detail-hero-info h1 {
+  order: 1;
+  flex: 0 1 auto;
+  margin: 8px 0 3px;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.player-detail-posicao {
+  color: var(--lime);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.player-detail-capitao {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #d4af37;
+  color: var(--green-deep);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.player-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 44px;
+}
+
+.meta-card {
+  display: flex;
+  min-height: 86px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.meta-card span {
+  color: var(--ink-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.meta-card strong {
+  color: var(--green-deep);
+  font-size: 1.08rem;
+}
+
+.player-detail-stats {
+  margin-bottom: 48px;
+}
+
+.player-detail-stats h2 {
+  margin-bottom: 16px;
+  color: var(--green-deep);
+  font-size: 1.35rem;
+}
+
+/* ========== PLAYER DETAIL — RESPONSIVO ========== */
+@media (max-width: 720px) {
+  .plantel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .plantel-lead {
+    margin-bottom: 0;
+  }
+
+  .player-detail-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    gap: 20px;
+  }
+
+  .player-detail-hero-info {
+    width: 100%;
+  }
+
+  .player-detail-name-row {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .player-detail-hero::after {
+    right: -24px;
+    top: auto;
+    bottom: -34px;
+    width: 170px;
+    height: 170px;
+    opacity: 0.12;
+    transform: none;
+  }
+
+  .player-detail-foto {
+    width: 140px;
+    height: 140px;
+  }
+
+  .player-detail-tags {
+    justify-content: center;
+  }
+
+  .player-detail-numero {
+    flex-basis: 58px;
+    min-width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    font-size: 1.65rem;
+  }
+
+  .player-detail-name-row {
+    gap: 10px;
+  }
+
+  .player-detail-hero-info h1 {
+    font-size: 1.6rem;
+  }
+
+  .player-detail-bio-inline {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .player-detail-meta {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-big {
+    padding: 18px;
+  }
+
+  .stat-big span {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .player-detail-foto {
+    width: 110px;
+    height: 110px;
+  }
+
+  .player-detail-hero-info h1 {
+    font-size: 1.4rem;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-big {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-big span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--green);
+}
+
+.stat-big p {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+/* ---- HERO — TAGS, BIO E BOTÃO ÁLBUM ---- */
+.player-detail-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.player-detail-capitao {
+  margin-bottom: 4px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #d4af37;
+  color: var(--green-deep);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.player-detail-bio-inline {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 480px;
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+
+.player-detail-album-btn {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.player-detail-album-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ---- MODAL DO ÁLBUM ---- */
+.album-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 20, 10, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.album-modal {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.album-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.album-modal-header h2 {
+  font-size: 1.3rem;
+  color: var(--green-deep);
+}
+
+.album-fechar {
+  background: var(--green-tint);
+  color: var(--green-deep);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-fechar:hover {
+  background: var(--green-tint-2);
+}
+
+.album-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.album-modal-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .album-modal {
+    padding: 20px;
+    max-height: 90vh;
+  }
+
+  .album-modal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- CAPITÃO ---- */
+.player-capitao-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  background: #d4af37;
+  color: var(--green-deep);
+  font-weight: 700;
+  font-size: 0.75rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-card--capitao .player-card-face {
+  border-color: #d4af37;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player-card-inner {
+    transition: none;
+  }
+}
+
+/* ========== CTA PLANTEL (fim da homepage) ========== */
+.plantel-cta {
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.plantel-cta h2 {
+  color: var(--green-deep);
+  margin-bottom: 8px;
+}
+
+.plantel-cta p {
+  color: var(--ink-muted);
+  margin-bottom: 28px;
+}
+
+.plantel-cta-button {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 32px;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.plantel-cta-button:hover {
+  background: var(--green-deep);
+  transform: translateY(-2px);
 }

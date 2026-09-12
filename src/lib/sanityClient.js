@@ -67,3 +67,35 @@ export async function getPaginaInicial() {
     }
   `)
 }
+
+export async function getPlantel() {
+  return client.fetch(`
+    *[_type == "jogador"] | order(numero asc) {
+      _id,
+      nome,
+      numero,
+      posicao,
+      capitao,
+      "slug": slug.current,
+      "fotoUrl": foto.asset->url
+    }
+  `)
+}
+
+export async function getJogador(slug) {
+  return client.fetch(`
+    *[_type == "jogador" && slug.current == $slug][0] {
+      _id,
+      nome,
+      numero,
+      posicao,
+      capitao,
+      nacionalidade,
+      dataNascimento,
+      periodosClube,
+      estatisticas,
+      bio,
+      "fotoUrl": foto.asset->url,
+    }
+  `, { slug })
+}

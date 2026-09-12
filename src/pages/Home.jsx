@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import heroBg from '../assets/hero-bg.jpeg'
 import armadaLogo from '../assets/armada-verde.png'
 import armadaBg from '../assets/armada-bg.jpg'
@@ -19,15 +19,6 @@ export default function Home() {
   const [mostrarTodosOsMarcos, setMostrarTodosOsMarcos] = useState(false)
   const { heroEyebrow, estatisticas } = paginaInicial
 
-
-  const destaques = [
-    'Fundado em 24 de janeiro de 1990',
-    'Clube dedicado exclusivamente ao hóquei em patins',
-    'Campeão Açoriano de seniores em várias ocasiões',
-    'Primeiro clube açoriano a alcançar a I Divisão Nacional',
-    'Regresso ao Campeonato PLACARD em 2026/2027',
-    'Forte aposta na formação de jovens atletas',
-  ]
 
   return (
     <>
@@ -150,6 +141,15 @@ export default function Home() {
         </div>
 
 
+      </section>
+      <SectionDivider />
+
+      <section className="plantel-cta">
+        <h2>Conhece o Plantel</h2>
+        <p>Os atletas que representam o Candelária Sport Clube na época 2026/2027.</p>
+        <Link to="/plantel" className="plantel-cta-button">
+          Ver Plantel Completo
+        </Link>
       </section>
 
     </>

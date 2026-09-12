@@ -28,6 +28,12 @@ export default function Layout() {
 
           <nav className="main-nav">
             <NavLink
+              to="/plantel"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              Plantel
+            </NavLink>
+            <NavLink
               to="/orgaos-sociais"
               className={({ isActive }) => (isActive ? 'active' : '')}
             >
